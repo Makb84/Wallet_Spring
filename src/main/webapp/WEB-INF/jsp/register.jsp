@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="form" uri="https://www.springframework.org/tags/form" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
@@ -27,17 +27,17 @@
             </h1>
             <br>
 
-            <form:form action="/register" class="reg-form" modelAttribute = "registerUser">
+            <form:form action="/register" class="reg-form" modelAttribute="registerUser">
 
                 <div class="row">
                     
                     <div class="form-group col">
-                        <form:input type="text" path="last_name" class="form-control text-center" placeholder="نام خانوادگی">
+                        <form:input type="text" path="last_name" class="form-control text-center" placeholder="نام خانوادگی"/>
                         <form:errors path="last_name" class="text-white bg-danger"/>
                     </div>
 
                     <div class="form-group col">
-                        <form:input type="text" path="first_name" class="form-control text-center" placeholder="نام">
+                        <form:input type="text" path="first_name" class="form-control text-center" placeholder="نام"/>
                         <form:errors path="first_name" class="text-white bg-danger"/>
                     </div>
                     
@@ -47,7 +47,7 @@
                 <div class="row">
 
                     <div class="form-group col">
-                        <form:input type="email" path="email" class="form-control text-center" placeholder="ایمیل">
+                        <form:input type="email" path="email" class="form-control text-center" placeholder="ایمیل"/>
                         <form:errors path="email" class="text-white bg-danger"/>
                     </div>
 
@@ -57,12 +57,12 @@
                 <div class="row">
                     
                     <div class="form-group col">
-                        <form:input type="password" path="password" class="form-control text-center" placeholder="تایید رمز عبور">
+                        <form:input type="password" path="password" class="form-control text-center" placeholder="تایید رمز عبور"/>
                         <form:errors path="password" class="text-white bg-danger"/>
                     </div>
 
                     <div class="form-group col">
-                        <form:input type="password" name="confirm_password" class="form-control text-center" placeholder="رمز عبور">
+                        <input type="password" name="confirm_password" class="form-control text-center" placeholder="رمز عبور">
                         <small class="text-white bg-danger">${confirm_pass}</small>
                     </div>
                     

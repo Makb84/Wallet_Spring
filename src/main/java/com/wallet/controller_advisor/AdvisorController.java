@@ -12,5 +12,4 @@ public class AdvisorController {
     public User getUserDefaults(){
         return new User();
     }
-    
 }

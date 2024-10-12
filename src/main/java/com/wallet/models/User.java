@@ -29,16 +29,16 @@ public class User {
     @NotEmpty
     private String last_name;
 
-    @NotEmpty
+    // @NotEmpty
     private String date_of_birth;
 
-    @NotEmpty
+    // @NotEmpty
     private String phone_number;
 
-    @NotEmpty
+    // @NotEmpty
     private String gender;
 
-    @NotEmpty
+    // @NotEmpty
     private int military_card;
 
     @NotEmpty
@@ -50,9 +50,15 @@ public class User {
     @NonNull
     private String password;
 
-    // @Transient
-    // private String confirm_password;
+    @Transient
+    private String confirm_password;
 
+    public String getConfirm_password() {
+        return confirm_password;
+    }
+    public void setConfirm_password(String confirm_password) {
+        this.confirm_password = confirm_password;
+    }
     private String token;
     private String code;
     private int verified;
