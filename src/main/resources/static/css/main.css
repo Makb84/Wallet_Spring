@@ -1,0 +1,72 @@
+*{
+    box-sizing: border-box;
+    font-family: Comfortaa;
+}
+
+body{
+    background-color: rgb(217, 218, 243);
+}
+
+.container{
+    margin: 10px auto;
+}
+
+.main-page-header{
+    padding: 10px 0px;
+}
+
+.main-page-header .company-name{
+    font-weight: 600;
+    color: white;
+}
+
+.navigation{
+    /* border: 1px solid white; */
+    margin-right: 20px;
+}
+
+.navigation li{
+    display: inline-block;
+    list-style-type: none;
+    margin: 0px 15px;
+}
+
+.navigation a{
+    color: white;
+    text-decoration: none;
+}
+
+.display-name{
+    margin-right: 720px;
+}
+
+#add-account-btn{
+    width: 120px;
+    background-color: orange;
+    color: black;
+}
+
+#transact-btn{
+    width: 120px;
+    background-color: rgb(25, 230, 155);
+    color: black;
+}
+
+.offcanvas{
+    background-image: url("../images/offcanvas_bg.jpeg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.deposit-card{
+    display: none;
+}
+
+.withdrawal-card{
+    display: none;
+}
+
+.transfer-card{
+    display: none;
+}

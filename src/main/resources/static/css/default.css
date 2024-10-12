@@ -1,0 +1,47 @@
+*{
+    box-sizing: border-box;
+}
+
+/* Main Body style */
+body{
+    height: 100vh;
+    background-image: url("../images/main_bg.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* sample-text-card */
+#sample-text-card{
+    margin: 0px 100px;
+    font-family: Comfortaa;
+    width: 700px;
+    height: 220px;
+    background-color: rgb(163, 157, 222);
+    border: none;
+}
+
+#sample-text-card h1{
+    font-size: 65px;
+}
+
+.button-wrapper a{
+    width: 200px;
+}
+
+.register{
+    background-color: orange;
+}
+
+.login{
+    background-color: lightgreen;
+}
+
+.card .form-control{
+    margin: 10px 0px;
+}
+
+.card button{
+    background-color: orange;
+    width: 200px;
+}
