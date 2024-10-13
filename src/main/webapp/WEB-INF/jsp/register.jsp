@@ -73,7 +73,7 @@
                 <div class="row text-center">
 
                     <div class="form-group col">
-                        <button class="btn btn-md text-center">ثبت</button>
+                        <button type="submit" class="btn btn-md text-center">ثبت</button>
                     </div>
 
                 </div>

@@ -1,4 +1,4 @@
-package com.demo_bank_v1.helpers;
+package com.wallet.helpers;
 
 public class HTML {
 

@@ -19,7 +19,7 @@ public class User {
     @Id
     private int user_id;
 
-    @NotEmpty
+    // @NotEmpty
     private String national_code;
     
     @NotEmpty(message = "the firstname field cannot be empty")
