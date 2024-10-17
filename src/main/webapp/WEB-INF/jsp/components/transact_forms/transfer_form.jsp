@@ -14,10 +14,10 @@
 
         <!-- Form Group -->
         <div class="form-group">
-            <label for="">Select Account</label>
+            <label for="">انتخاب ولت مبدا</label>
             <!-- Select Account Option -->
             <select name="transfer_from" class="form-control" id="">
-                <option value="">-- Select Account --</option>
+                <option value="">-- انتخاب ولت --</option>
                 <c:if test="${userAccounts != null}">
                     <c:forEach items="${userAccounts}" var="selectAccount">
                         <option value="${selectAccount.account_id}">${selectAccount.account_name}</option>
@@ -30,10 +30,10 @@
 
         <!-- Form Group -->
         <div class="form-group">
-            <label for="">Select Account</label>
+            <label for="">انتخاب ولت مقصد</label>
             <!-- Select Account Option -->
             <select name="transfer_to" class="form-control" id="">
-                <option value="">-- Select Account --</option>
+                <option value="">-- انتخاب ولت --</option>
                 <c:if test="${userAccounts != null}">
                     <c:forEach items="${userAccounts}" var="selectAccount">
                         <option value="${selectAccount.account_id}">${selectAccount.account_name}</option>
@@ -47,14 +47,14 @@
 
         <!-- Form Group -->
         <div class="form-group mb-2">
-            <label for=""> Enter transfer Amount</label>
-            <input type="text" name="transfer_amount" class="form-control" placeholder="Enter transfer Amount">
+            <label for="">مقدار</label>
+            <input type="text" name="transfer_amount" class="form-control" placeholder="مقدار">
         </div>
         <!-- End Of Form Group -->
 
             <!-- Form Group -->
             <div class="form-group my-2">
-                <button id="" class="btn btn-md transact-btn">Transfer</button>
+                <button id="" class="btn btn-md transact-btn">انتقال</button>
             </div>
             <!-- End Of Form Group -->
 
