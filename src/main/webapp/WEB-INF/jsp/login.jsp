@@ -22,7 +22,7 @@
             </h1>
             <br>
 
-            <form action="" class="login-form">
+            <form action="/login" method="POST" class="login-form">
                 
                 <div class="row">
 
@@ -40,6 +40,12 @@
                     </div>
                     
                 </div>
+
+                <!-- From Group -->
+                <div class="form-group col">
+                    <input type="hidden" name="_token" value="${token}"/>
+                </div>
+                <!-- End Of From Group -->
 
                 <br>
 
