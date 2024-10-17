@@ -3,7 +3,7 @@ const transactType = document.querySelector("#transact-type");
 
 // Get Transaction Forms:
 const depositCard = document.querySelector(".deposit-card");
-const withdrawCard = document.querySelector(".withdrawal-card");
+const withdrawCard = document.querySelector(".withdraw-card");
 const transferCard = document.querySelector(".transfer-card");
 
 // Hide all transaction cards initially

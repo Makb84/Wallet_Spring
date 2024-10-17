@@ -7,27 +7,41 @@
 <div class="card withdrawal-card">
 
     <div class="card-body">
-        <div class="form-group">
-            <label for="">شماره حساب</label>
-            <input type="text" name="account_number" class="form-control my-2" placeholder="شماره حساب">
-        </div>
-    </div>
 
-    <div class="card-body">
-        <!-- <div class="form-group">
-            <label for="">ذینفع</label>
-            <input type="text" name="account_name" class="form-control my-2" placeholder="نام ذینفع">
-        </div> -->
-        
-        <div class="form-group mb-2">
-            <label for="">مقدار</label>
-            <input type="text" name="amount" class="form-control my-2" placeholder="مقدار">
-        </div>
+        <!-- Deposit Form -->
+        <form action="/transact/withdraw" method="POST" class="deposit-form">
+            <!-- Form Group -->
+            <div class="form-group mb-2">
+                <label for=""> Enter Withdrawal Amount</label>
+                <input type="text" name="withdrawal_amount"class="form-control" placeholder="Enter Withdrawal Amount">
+            </div>
+            <!-- End Of Form Group -->
 
-        <div class="form-group mb-2 text-center">
-            <button id="transact-btn" class="btn btn-md" style="background-color: rgba(25, 152, 255, 0.536); width: 100px;">ثبت</button>
+            <!-- Form Group -->
+            <div class="form-group">
+                <label for="">Select Account</label>
+                <!-- Select Account Option -->
+                <select name="account_id" class="form-control" id="">
+                    <option value="">-- Select Account --</option>
+                    <c:if test="${userAccounts != null}">
+                        <c:forEach items="${userAccounts}" var="selectAccount">
+                            <option value="${selectAccount.account_id}">${selectAccount.account_name}</option>
+                        </c:forEach>
+                    </c:if>
+                </select>
+                <!-- End Select Account Option -->
+            </div>
+            <!-- End Of Group -->
+
+
+            <!-- Form Group -->
+            <div class="form-group my-2">
+                <button id="" class="btn btn-md transact-btn">Withdraw</button>
+            </div>
+            <!-- End Of Form Group -->
+        </form>
+        <!-- End Withdrawal Form  -->
         </div>
-        
-    </div>
+        <!-- End Of Card Body -->
 
 </div>

@@ -4,30 +4,65 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
 
+<!-- Card: Transfer Card -->
 <div class="card transfer-card">
-
+    <!-- Card Body -->
     <div class="card-body">
+
+    <!-- Transfer Form -->
+    <form action="/transact/transfer" method="POST">
+
+        <!-- Form Group -->
         <div class="form-group">
-            <label for="">شماره حساب</label>
-            <input type="text" name="account_number" class="form-control my-2" placeholder="شماره حساب">
+            <label for="">Select Account</label>
+            <!-- Select Account Option -->
+            <select name="transfer_from" class="form-control" id="">
+                <option value="">-- Select Account --</option>
+                <c:if test="${userAccounts != null}">
+                    <c:forEach items="${userAccounts}" var="selectAccount">
+                        <option value="${selectAccount.account_id}">${selectAccount.account_name}</option>
+                    </c:forEach>
+                </c:if>
+            </select>
+            <!-- End Select Account Option -->
         </div>
-    </div>
+        <!-- End Of Group -->
 
-    <div class="card-body">
-        <!-- <div class="form-group">
-            <label for="">ذینفع</label>
-            <input type="text" name="account_name" class="form-control my-2" placeholder="نام ذینفع">
-        </div> -->
-        
+        <!-- Form Group -->
+        <div class="form-group">
+            <label for="">Select Account</label>
+            <!-- Select Account Option -->
+            <select name="transfer_to" class="form-control" id="">
+                <option value="">-- Select Account --</option>
+                <c:if test="${userAccounts != null}">
+                    <c:forEach items="${userAccounts}" var="selectAccount">
+                        <option value="${selectAccount.account_id}">${selectAccount.account_name}</option>
+                    </c:forEach>
+                </c:if>
+            </select>
+            <!-- End Select Account Option -->
+        </div>
+        <!-- End Of Group -->
+
+
+        <!-- Form Group -->
         <div class="form-group mb-2">
-            <label for="">مقدار</label>
-            <input type="text" name="amount" class="form-control my-2" placeholder="مقدار">
+            <label for=""> Enter transfer Amount</label>
+            <input type="text" name="transfer_amount" class="form-control" placeholder="Enter transfer Amount">
         </div>
+        <!-- End Of Form Group -->
 
-        <div class="form-group mb-2 text-center">
-            <button id="transact-btn" class="btn btn-md" style="background-color: rgba(25, 152, 255, 0.536); width: 100px;">ثبت</button>
-        </div>
-        
+            <!-- Form Group -->
+            <div class="form-group my-2">
+                <button id="" class="btn btn-md transact-btn">Transfer</button>
+            </div>
+            <!-- End Of Form Group -->
+
+    </form>
+    <!-- End Of Transfer Form -->
+
     </div>
+    <!-- End Of Card Body -->
 
 </div>
+<!-- End Of Card: Transfer Card -->
