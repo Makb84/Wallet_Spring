@@ -5,7 +5,7 @@
 <%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
 
 <!-- Card: Deposit Card -->
-<div class="card deposit-card">
+<div class="card deposit">
     <!-- Card Body -->
     <div class="card-body">
 

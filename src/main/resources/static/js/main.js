@@ -1,44 +1,48 @@
-// Get Transaction Type:
-const transactType = document.querySelector("#transact-type");
+document.addEventListener("DOMContentLoaded", function () {
+    // Get Transaction Type:
+    const transactType = document.querySelector("#transact-type");
+    
+    // Get Transaction Forms:
+    const depositCard = document.querySelector(".deposit");
+    const withdrawCard = document.querySelector(".withdraw");
+    const transferCard = document.querySelector(".transfer");
 
-// Get Transaction Forms:
-const depositCard = document.querySelector(".deposit-card");
-const withdrawCard = document.querySelector(".withdraw-card");
-const transferCard = document.querySelector(".transfer-card");
+    // Hide all transaction cards initially
+    function hideAllCards() {
+        depositCard.style.display = "none";
+        withdrawCard.style.display = "none";
+        transferCard.style.display = "none";
+    }
 
-// Hide all transaction cards initially
-function hideAllCards() {
-    depositCard.style.display = "none";
-    withdrawCard.style.display = "none";
-    transferCard.style.display = "none";
-}
-
-// Check for Transaction Type Event Listener:
-transactType.addEventListener("change", () => {
-    // Hide all cards first
+    // Initially hide all cards when the page loads
     hideAllCards();
 
-    // Show the relevant card based on selected type
-    switch (transactType.value) {
-        case "deposit":
-            depositCard.style.display = "block";
-            break;
+    // Add event listener to detect the change in transaction type
+    transactType.addEventListener("change", () => {
+        // Hide all cards first
+        hideAllCards();
 
-        case "withdraw":
-            withdrawCard.style.display = "block";
-            break;
+        // Show the relevant card based on the selected type
+        switch (transactType.value) {
+            case "deposit":
+                depositCard.style.display = "block";
+                break;
 
-        case "transfer":
-            transferCard.style.display = "block";
-            break;
+            case "withdraw":
+                withdrawCard.style.display = "block";
+                break;
 
-        default:
-            // If no selection or empty, hide all cards again
-            hideAllCards();
-            break;
-    }
+            case "transfer":
+                transferCard.style.display = "block";
+                break;
+
+            default:
+                // Hide all cards if no selection
+                hideAllCards();
+                break;
+        }
+    });
 });
-
 
 
 

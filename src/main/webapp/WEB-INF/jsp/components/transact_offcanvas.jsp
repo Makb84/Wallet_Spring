@@ -27,7 +27,7 @@
                 </select>
 
                 <!-- Payments Form Card -->
-                <c:import url="components/transact_forms/payment_form.jsp"/>
+                <!-- <c:import url="components/transact_forms/payment_form.jsp"/> -->
                 <!-- Transfer Form Card -->
                 <c:import url="components/transact_forms/transfer_form.jsp"/>
                 <!-- Deposit Form Card -->
