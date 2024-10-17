@@ -21,7 +21,7 @@
                 <i class="fa fa-circle text-success me-2 shadow-sm"></i> خوش آمدید: MAKB
             </div>
 
-            <a href="" class="btn btn-sm text-white ms-2">
+            <a href="/logout" class="btn btn-sm text-white ms-2">
                 <i class="fa fa-sign-out-alt"></i> خروج
             </a>
 

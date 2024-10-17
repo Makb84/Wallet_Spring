@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="../css/fontawesome/css/all.css">
     <link rel="stylesheet" href="../css/main.css">
-    <script src="js/bootstrap.bundle.js"></script>
+    <script src="../js/bootstrap.bundle.js"></script>
     <title>Dashboard</title>
 </head>
 <body>
@@ -49,16 +49,10 @@
     </div>
     <!-- End Of Container-->
 
-    <c:choose>
-        <c:when test="${fn:length(userAccounts) > 0 }">
+
             <!-- Display Accounts --->
             <c:import url="components/accounts_display.jsp"/>
-        </c:when>
-        <c:otherwise>
-            <!-- Dont Display Accounts -->
-            <c:import url="components/no_accounts_display.jsp"/>
-        </c:otherwise>
-    </c:choose>
+
 
 
     <!-- Footer -->
