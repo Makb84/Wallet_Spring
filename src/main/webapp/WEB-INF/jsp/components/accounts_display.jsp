@@ -20,7 +20,11 @@
 
   <div class="container d-flex py-3" dir="rtl">
       <h2 class="me-auto">موجودی کلی حساب‌ها: </h2>
-      <h2 class="ms-auto"> 0.00</h2>
+        <h2 class="ms-auto">
+          <c:if test="${totalBalance != null}">
+            <c:out value="${totalBalance}"/>
+          </c:if>
+        </h2>
   </div>
 
 

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import jakarta.servlet.http.HttpSession;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 @Controller
@@ -39,11 +41,16 @@ public class AppController {
             return getDashboardPage;
         }
 
+        BigDecimal totalAccountsBalance = accountRepository.getTotalBalance(user.getUser_id());
+
+
         // Fetch the user's accounts using the correct repository method
         List<Account> userAccounts = accountRepository.getUserAccountsById(user.getUser_id());
 
         // Add the accounts to the model
         getDashboardPage.addObject("userAccounts", userAccounts);
+        getDashboardPage.addObject("totalBalance", totalAccountsBalance);
+
 
         return getDashboardPage;
     }
