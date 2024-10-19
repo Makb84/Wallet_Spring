@@ -7,7 +7,7 @@
     <div class="container d-flex">
 
       <button id="add-account-btn" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-          حساب جدید
+          ولت جدید
       </button>
 
       <button id="transact-btn" class="btn btn-primary ms-auto" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">

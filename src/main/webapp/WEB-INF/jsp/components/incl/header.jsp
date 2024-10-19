@@ -18,7 +18,7 @@
             </nav>
             
             <div class="display-name text-white">
-                <i class="fa fa-circle text-success me-2 shadow-sm"></i> خوش آمدید: MAKB
+                <i class="fa fa-circle text-success me-2 shadow-sm"></i> خوش آمدید: ${user.first_name}  ${user.last_name} 
             </div>
 
             <a href="/logout" class="btn btn-sm text-white ms-2">
