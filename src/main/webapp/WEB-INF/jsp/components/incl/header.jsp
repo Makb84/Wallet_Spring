@@ -13,6 +13,7 @@
 
             <nav class="navigation">
                 <li><a href="/app/dashboard"> داشبورد </a></li>
+                <li><a href="/app/edit_profile"> پروفایل </a></li>
                 <!-- <li><a href=""> پرداخت‌ها </a></li> -->
                 <li><a href="/app/transact_history"> تراکنش‌ها </a></li>
             </nav>
