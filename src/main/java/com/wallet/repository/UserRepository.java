@@ -32,6 +32,18 @@ public interface UserRepository extends CrudRepository<User, Integer> {
                       @Param("email") String email,
                       @Param("password") String password);
 
+        @Modifying
+        @Query(value = "UPDATE users SET first_name = :first_name, last_name = :last_name, email = :email, phone_number = :phone_number, date_of_birth = :date_of_birth, gender = :gender WHERE user_id = :user_id", nativeQuery = true)
+        @Transactional // Make sure to include @Transactional here as well
+        void updateUser(@Param("user_id") int userId,
+                        @Param("first_name") String firstName,
+                        @Param("last_name") String lastName,
+                        @Param("email") String email,
+                        @Param("phone_number") String phoneNumber,
+                        @Param("date_of_birth") String dateOfBirth,
+                        @Param("gender") String gender);
+                      
+
     @Modifying
     @Query(value = "UPDATE users SET token=null, code=null, verified=1, verified_at=NOW(), updated_at=NOW() WHERE " +
             "token= :token AND code= :code", nativeQuery = true)

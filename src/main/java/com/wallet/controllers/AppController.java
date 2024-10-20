@@ -8,11 +8,14 @@ import com.wallet.repository.TransactHistoryRepository;
 import com.wallet.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import jakarta.servlet.http.HttpSession;
@@ -30,6 +33,9 @@ public class AppController {
 
     @Autowired
     private AccountRepository accountRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     User user;
 
@@ -77,8 +83,7 @@ public class AppController {
         return getTransactHistoryPage;
     }
 
-        @Autowired
-    private UserRepository userRepository; // Make sure you have this repository
+
 
     @GetMapping("/edit_profile")
     public ModelAndView editProfile(HttpSession session) {
@@ -96,21 +101,55 @@ public class AppController {
     }
 
     @PostMapping("/edit_profile")
-    public ModelAndView updateProfile(@Valid User user, BindingResult result, HttpSession session) {
-        ModelAndView modelAndView = new ModelAndView();
-
-        if (result.hasErrors()) {
-            modelAndView.setViewName("editProfile"); // Return to the edit page if validation fails
-            modelAndView.addObject("user", user); // Add the user object to the model
-            return modelAndView;
-        }
-
-        // Update user data in the repository
-        userRepository.save(user); // Assuming save method updates the existing user
+    public ModelAndView editProfile(@Valid @ModelAttribute("user") User user,  // Changed to "user" to match the model attribute in the view
+                                     BindingResult result) {
+        ModelAndView editProfilePage = new ModelAndView("editProfile");
         
-        session.setAttribute("user", user); // Update session with new user data
-        modelAndView.setViewName("redirect:/app/dashboard"); // Redirect to dashboard after successful update
-        return modelAndView;
+        // Check for validation errors
+        if (result.hasErrors()) {
+            // Return to the edit profile page with error messages
+            return editProfilePage;
+        }
+        
+        // Assuming user object contains user_id, otherwise extract it from session
+        int userId = user.getUser_id(); // Ensure User has this method
+        userRepository.updateUser(userId, 
+                                   user.getFirst_name(), 
+                                   user.getLast_name(),
+                                   user.getEmail(), 
+                                   user.getPhone_number(),
+                                   user.getDate_of_birth(), 
+                                   user.getGender());
+        
+        // Add success message to the model
+        String successMessage = "Account Updated Successfully!";
+        editProfilePage.addObject("success", successMessage);
+        
+        // Optional: Redirect to another page or the same page to avoid resubmission
+        editProfilePage.setViewName("redirect:/profile"); // Change to your intended redirect URL
+        return editProfilePage;
     }
+    
+
+
+
+
+    // public ModelAndView updateProfile(@Valid User user, BindingResult result, HttpSession session) {
+    //     ModelAndView modelAndView = new ModelAndView();
+
+    //     if (result.hasErrors()) {
+    //         modelAndView.setViewName("editProfile"); // Return to the edit page if validation fails
+    //         modelAndView.addObject("user", user); // Add the user object to the model
+    //         return modelAndView;
+    //     }
+
+    //     // Update user data in the repository
+    //     userRepository.updateUser(first_name, last_name, email, phone_number, date_of_birth, gender); // Call the updated method
+    //     userRepository.save(user); // Assuming save method updates the existing user
+        
+    //     session.setAttribute("user", user); // Update session with new user data
+    //     modelAndView.setViewName("redirect:/app/dashboard"); // Redirect to dashboard after successful update
+    //     return modelAndView;
+    // }
 
 }
