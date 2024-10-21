@@ -64,19 +64,7 @@ public class AuthController {
             model.addAttribute("error", "Something went wrong please contact support");
             return "error";
         }
-        // Check If Email Exists.
-
-        // TODO : CHECK IF USER ACCOUNT IS VERIFIED:
-        // int verified = userRepository.isVerified(getEmailInDatabase);
-
-        // // Check If Account is verified:
-        // if (verified != 1){
-        //     String msg = "This Account is not yet Verified, please check email and verify account";
-        //     model.addAttribute("error", msg);
-        //     return "login";
-        // }
-        // // End Of Check If Account is verified.
-
+        
         // TODO: PROCEED TO LOG THE USER IN:
         User user = userRepository.getUserDetails(getEmailInDatabase);
 
