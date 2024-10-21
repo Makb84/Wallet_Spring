@@ -27,20 +27,20 @@
             </h1>
             <br>
 
-            <form:form action="/register" class="reg-form" modelAttribute="registerUser">
+            <form:form action="/register" class="reg-form" modelAttribute="registerUser" dir="rtl">
 
                 <div class="row">
                     
+                    <div class="form-group col">
+                        <form:input type="text" path="first_name" class="form-control text-center" placeholder="نام"/>
+                        <form:errors path="first_name" class="text-white bg-danger"/>
+                    </div>
+
                     <div class="form-group col">
                         <form:input type="text" path="last_name" class="form-control text-center" placeholder="نام خانوادگی"/>
                         <form:errors path="last_name" class="text-white bg-danger"/>
                     </div>
 
-                    <div class="form-group col">
-                        <form:input type="text" path="first_name" class="form-control text-center" placeholder="نام"/>
-                        <form:errors path="first_name" class="text-white bg-danger"/>
-                    </div>
-                    
                 </div>
                 
 
@@ -57,15 +57,15 @@
                 <div class="row">
                     
                     <div class="form-group col">
+                        <input type="password" name="confirm_password" class="form-control text-center" placeholder="رمز عبور">
+                        <small class="text-white bg-danger">${confirm_pass}</small>
+                    </div>
+
+                    <div class="form-group col">
                         <form:input type="password" path="password" class="form-control text-center" placeholder="تایید رمز عبور"/>
                         <form:errors path="password" class="text-white bg-danger"/>
                     </div>
 
-                    <div class="form-group col">
-                        <input type="password" name="confirm_password" class="form-control text-center" placeholder="رمز عبور">
-                        <small class="text-white bg-danger">${confirm_pass}</small>
-                    </div>
-                    
                 </div>
 
                 <br>
