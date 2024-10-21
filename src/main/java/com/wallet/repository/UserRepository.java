@@ -25,7 +25,7 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 
     @Modifying
     @Query(value = "INSERT INTO users (first_name, last_name, email, password) VALUES " +
-            "(:first_name, :last_name, :email, :password)", nativeQuery = true) // Removed trailing comma
+            "(:first_name, :last_name, :email, :password)", nativeQuery = true)
     @Transactional
     void registerUser(@Param("first_name") String first_name,
                       @Param("last_name") String last_name,
@@ -34,7 +34,7 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 
         @Modifying
         @Query(value = "UPDATE users SET first_name = :first_name, last_name = :last_name, email = :email, phone_number = :phone_number, date_of_birth = :date_of_birth, gender = :gender WHERE user_id = :user_id", nativeQuery = true)
-        @Transactional // Make sure to include @Transactional here as well
+        @Transactional
         void updateUser(@Param("user_id") int userId,
                         @Param("first_name") String firstName,
                         @Param("last_name") String lastName,
