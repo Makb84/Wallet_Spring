@@ -144,6 +144,8 @@ public class TransactController {
     }
     // End Of Transfer Method.
 
+
+    private static final double MINIMUM_BALANCE = 10000;
     @PostMapping("/withdraw")
     public String withdraw(@RequestParam("withdrawal_amount")String withdrawalAmount,
                            @RequestParam("account_id")String accountID,
@@ -169,7 +171,7 @@ public class TransactController {
         //     redirectAttributes.addFlashAttribute("error", errorMessage);
         //     return "redirect:/app/dashboard";
         // }
-
+ 
         // TODO: CHECK FOR 0 (ZERO) VALUES:
         if (withdrawal_amount == 0){
             errorMessage = "مقدار برداشتی باید بیشتر از صفر باشد.";
@@ -179,9 +181,18 @@ public class TransactController {
 
         // TODO: GET LOGGED IN USER:
         user = (User) session.getAttribute("user");
-
+        
         // TODO: GET CURRENT BALANCE:
         currentBalance = accountRepository.getAccountBalance(user.getUser_id(), account_id);
+        
+        // TODO: CHECK IF BALANCE AFTER WITHDRAWAL WOULD BE LESS THAN MINIMUM_BALANCE
+        if (currentBalance - withdrawal_amount < MINIMUM_BALANCE) {
+            errorMessage = "موجودی حساب پس از برداشت نباید کمتر از ۱۰,۰۰۰ باشد!";
+            // Log Failed Transaction:
+            transactRepository.logTransaction(account_id, "Withdrawal", withdrawal_amount, "online", "failed", "Insufficient Funds: Below Minimum Balance", currentDateTime);
+            redirectAttributes.addFlashAttribute("error", errorMessage);
+            return "redirect:/app/dashboard";
+        }
 
         // TODO: CHECK IF TRANSFER AMOUNT IS MORE THAN CURRENT BALANCE:
         if(currentBalance < withdrawal_amount){
