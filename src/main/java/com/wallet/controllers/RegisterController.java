@@ -58,7 +58,7 @@ public class RegisterController {
         userRepository.registerUser(first_name, last_name, email, hashed_password); // Call the updated method
 
         // Return success message:
-        String successMessage = "Account Registered Successfully!";
+        String successMessage = "حساب با موفقیت ثبت شد.";
         registrationPage.addObject("success", successMessage);
         return registrationPage;
     }

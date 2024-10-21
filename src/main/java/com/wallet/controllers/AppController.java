@@ -122,7 +122,7 @@ public class AppController {
                                    user.getGender());
         
         // Add success message to the model
-        String successMessage = "Account Updated Successfully!";
+        String successMessage = "پروفایل با موفقت آپدیت شد";
         editProfilePage.addObject("success", successMessage);
         
         // Optional: Redirect to another page or the same page to avoid resubmission
